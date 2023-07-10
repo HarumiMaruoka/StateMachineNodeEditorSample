@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6328503496981302313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b88ddc74cd98464ea3b8e0345c79de8, type: 3}
+  m_Name: StateMachineNode
+  m_EditorClassIdentifier: 
+  _position: {x: 333.31195, y: 116.560005}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f47ae440d7766242b106006d1993f36, type: 3}
+  m_Name: StateMachineData
+  m_EditorClassIdentifier: 
+  _enterNode: {fileID: 0}
+  _nodes:
+  - {fileID: -6328503496981302313}
+  - {fileID: 4476334787433604466}
+  _edges: []
+--- !u!114 &4476334787433604466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b88ddc74cd98464ea3b8e0345c79de8, type: 3}
+  m_Name: StateMachineNode
+  m_EditorClassIdentifier: 
+  _position: {x: 0, y: 0}
