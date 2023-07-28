@@ -6,6 +6,8 @@ public class Transition
 {
     public Transition(StateMachineNode nextNode, BoolStateCondition[] stateConditions)
     {
+        if (stateConditions == null) { _nextState = nextNode; return; }
+
         _nextState = nextNode; _conditions = stateConditions;
     }
 

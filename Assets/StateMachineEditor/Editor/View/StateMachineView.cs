@@ -101,12 +101,24 @@ public class StateMachineView : GraphView
             {
                 StateMachineNodeView outNode = edge.output.node as StateMachineNodeView;
                 StateMachineNodeView inNode = edge.input.node as StateMachineNodeView;
-                _stateMachine.AddTo(outNode.Node, inNode.Node);
+
+                if (!_stateMachine.AddTo(outNode.Node, inNode.Node))
+                {
+                    deleteEdges.Add(edge);
+                } // ノードの割り当てに失敗したらEdgeを破棄する。
             });
         }
+        // エッジの削除を遅延させる
+        EditorApplication.delayCall += () =>
+        {
+            deleteEdges.ForEach(edge => RemoveElement(edge));
+            deleteEdges.Clear();
+        };
 
         return graphViewChange;
     }
+
+    List<Edge> deleteEdges = new List<Edge>();
 
     public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
     {
@@ -141,4 +153,5 @@ public class StateMachineView : GraphView
             view?.UpdateState();
         }
     }
+
 }

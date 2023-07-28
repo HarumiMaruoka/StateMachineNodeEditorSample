@@ -20,14 +20,7 @@ public class ConditionsView : VisualElement
         {
             if (_editor.target)
             {
-                SerializedObject serializedObject = new SerializedObject(stateMachine);
-                SerializedProperty valuesProperty = serializedObject.FindProperty("_values");
-
-                serializedObject.Update();
-
-                EditorGUILayout.PropertyField(valuesProperty, true);
-
-                serializedObject.ApplyModifiedProperties();
+                _editor.OnInspectorGUI();
             }
         });
 

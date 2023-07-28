@@ -65,13 +65,20 @@ public class FloatStateCondition : IStateCondition
 [System.Serializable]
 public class BoolStateCondition : IStateCondition
 {
-    public BoolStateCondition(StateMachineSO stateMachineSO)
+    public BoolStateCondition Clone()
+    {
+        var clone = new BoolStateCondition();
+        clone.targetName = this.targetName;
+        return clone;
+    }
+
+    public void SetStateMachine(StateMachineSO stateMachineSO)
     {
         _stateMachineSO = stateMachineSO;
     }
 
     private StateMachineSO _stateMachineSO = null;
-    [SerializeField]
+    [SerializeField, StateMachineConditionName]
     private string targetName;
 
     public string TargetName => targetName;

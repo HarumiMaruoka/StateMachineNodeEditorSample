@@ -27,7 +27,15 @@ public class StateMachineNodeView : UnityEditor.Experimental.GraphView.Node
     public StateMachineNodeView(StateMachineNode node) : base("Assets/Editor/NodeView.uxml")
     {
         this._node = node;
-        this.title = node.name;
+        if (node.GetType() == typeof(EntryNode))
+        {
+            this.title = "Entry Node";
+        }
+        else
+        {
+            this.title = node.Name;
+        }
+
         this.viewDataKey = node.GUID;
 
         style.left = node.Position.x;
@@ -37,6 +45,11 @@ public class StateMachineNodeView : UnityEditor.Experimental.GraphView.Node
         CreateOutputPorts();
 
         CreateProgressBar();
+
+        _node.OnValueChanged += () =>
+        {
+            this.title = node.Name;
+        };
 
         SetupClasses();
     }

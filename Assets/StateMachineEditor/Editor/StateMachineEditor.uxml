@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
-    <Style src="project://database/Assets/Editor/StateMachineEditor.uss?fileID=7433441132597879392&amp;guid=1b9950ad6d100c74e9c0881d4ab1c5ee&amp;type=3#StateMachineEditor" />
+    <Style src="project://database/Assets/StateMachineEditor/Editor/StateMachineEditor.uss?fileID=7433441132597879392&amp;guid=1b9950ad6d100c74e9c0881d4ab1c5ee&amp;type=3#StateMachineEditor" />
     <uie:Toolbar>
         <uie:ToolbarMenu display-tooltip-when-elided="true" text="Assets" />
     </uie:Toolbar>
@@ -11,7 +11,7 @@
                     <ConditionsView />
                 </ui:VisualElement>
                 <ui:VisualElement>
-                    <ui:Label text="Inspector" display-tooltip-when-elided="true" style="color: rgb(255, 255, 255); font-size: 14px; -unity-font-style: normal; background-color: rgb(40, 40, 40);" />
+                    <ui:Label text="Node Inspector" display-tooltip-when-elided="true" style="color: rgb(255, 255, 255); font-size: 14px; -unity-font-style: normal; background-color: rgb(40, 40, 40);" />
                     <InspectorView />
                 </ui:VisualElement>
             </ui:ScrollView>

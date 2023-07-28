@@ -11,7 +11,7 @@ public class StateMachineRunner : MonoBehaviour
 
     private void Start()
     {
-        _stateMachine = _stateMachine.Clone();
+        _stateMachine = _stateMachine.Clone(this);
         _stateMachine.Start();
     }
     private void Update()

@@ -1,0 +1,27 @@
+// 日本語対応
+using UnityEngine;
+
+public abstract class StateBehavior : IState
+{
+    protected StateMachineSO _stateMachine;
+
+    public void Init(StateMachineSO stateMachine)
+    {
+        _stateMachine = stateMachine;
+    }
+
+    public virtual void Enter()
+    {
+
+    }
+
+    public virtual void Exit()
+    {
+
+    }
+
+    public virtual void Update()
+    {
+
+    }
+}

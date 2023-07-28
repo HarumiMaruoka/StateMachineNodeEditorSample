@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEditor.Callbacks;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -22,12 +23,12 @@ public class StateMachineEditor : EditorWindow
         VisualElement root = rootVisualElement;
 
         // Import UXML
-        var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Editor/StateMachineEditor.uxml");
+        var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/StateMachineEditor/Editor/StateMachineEditor.uxml");
         visualTree.CloneTree(root);
 
         // A stylesheet can be added to a VisualElement.
         // The style will be applied to the VisualElement and all of its children.
-        var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Editor/StateMachineEditor.uss");
+        var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/StateMachineEditor/Editor/StateMachineEditor.uss");
         root.styleSheets.Add(styleSheet);
 
         _stateMachineView = root.Q<StateMachineView>();
@@ -135,8 +136,29 @@ public class StateMachineEditor : EditorWindow
     {
         EditorApplication.playModeStateChanged -= OnPlayModeChanged;
     }
+
+    bool isPreDrawCondition = false;
+    Edge preEdge = null;
     private void OnInspectorUpdate()
     {
         _stateMachineView?.UpdateNodeState();
+
+        var selects = _stateMachineView.selection;
+
+        for (int i = 0; i < selects.Count; i++)
+        {
+            var edge = selects[i] as Edge;
+            if (edge != null)
+            {
+                if (!isPreDrawCondition || preEdge != edge)
+                {
+                    _inspectorView.UpdateSelection(edge);
+                }
+                preEdge = edge;
+                isPreDrawCondition = true;
+                return;
+            }
+        }
+        isPreDrawCondition = false;
     }
 }

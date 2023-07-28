@@ -121,7 +121,7 @@ public class SubclassSelectorDrawer : PropertyDrawer
         catch (MissingMethodException)
         {
             // https://learn.microsoft.com/ja-jp/dotnet/api/system.activator.createinstance?view=net-7.0#:~:text=CreateInstance(Type)-,%E6%8C%87%E5%AE%9A%E3%81%95%E3%82%8C%E3%81%9F%E5%9E%8B%E3%81%AE%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%83%BC%E3%81%AA%E3%81%97%E3%81%AE%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BC%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E3%80%81%E6%8C%87%E5%AE%9A%E3%81%95%E3%82%8C%E3%81%9F%E5%9E%8B%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%BE%E3%81%99%E3%80%82,-CreateInstance%3CT%3E()
-            Debug.Log("引数なしのコンストラクタが見つかりませんでした。");
+            Debug.Log("デフォルトコンストラクタが見つかりませんでした。");
             return null;
         }
         catch (ArgumentNullException)
